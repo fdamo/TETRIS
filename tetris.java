@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
-public class tetris02completo {
+public class tetris {
     public static void main(String[] args) {
         // creo oggetto JFrame
         JFrame frame = new JFrame("TETRIS");
@@ -21,27 +21,26 @@ public class tetris02completo {
         // imposta l'operazione di default di chiusura
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        PannelloTetrisCompleto pluto = new PannelloTetrisCompleto();
-        JPanel pannello_pluto = new JPanel();
+        PannelloTetris player = new PannelloTetris();
+        JPanel pannello_player = new JPanel();
         
         JButton down = new JButton("giù");
         JButton dxt = new JButton("dxt");
         JButton sxt = new JButton("sxt");
         JButton rot = new JButton("ruota");
 
-        rot.addActionListener(pluto);
-        down.addActionListener(pluto);
-        dxt.addActionListener(pluto);
-        sxt.addActionListener(pluto);
+        rot.addActionListener(player);
+        down.addActionListener(player);
+        dxt.addActionListener(player);
+        sxt.addActionListener(player);
         
-        pannello_pluto.add(rot);
-        pannello_pluto.add(down);
-        pannello_pluto.add(sxt);
-        pannello_pluto.add(dxt);
+        pannello_player.add(rot);
+        pannello_player.add(down);
+        pannello_player.add(sxt);
+        pannello_player.add(dxt);
 
-        frame.getContentPane().add(pannello_pluto, BorderLayout.NORTH);
-        frame.getContentPane().add(pluto, BorderLayout.CENTER);
-
+        frame.getContentPane().add(pannello_player, BorderLayout.NORTH);
+        frame.getContentPane().add(player, BorderLayout.CENTER);
 
         // prepara la finestra . la fa vedere al minimo delle dimensioni
         frame.pack();
@@ -54,14 +53,14 @@ public class tetris02completo {
 }
 
 
-class PannelloTetrisCompleto extends JPanel implements ActionListener {
+class PannelloTetris extends JPanel implements ActionListener {
     
 class Cella {
    
     int color = 0;
 }
 
-    public PannelloTetrisCompleto() {
+    public PannelloTetris() {
          // inizializzare le variabili
         clearScreen();
         pezzo_corrente = pezzo_elle[0];
@@ -107,7 +106,7 @@ class Cella {
         {0, 1, 0},
         {0, 1, 1},
         {0, 0, 1}
-}};
+    }};
 
     int[][][] pezzo_t = {{
         {0, 1, 0},
